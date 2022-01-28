@@ -14,8 +14,8 @@ model.add(tf.keras.layers.Dense(1500, activation=tf.nn.relu))
 model.add(tf.keras.layers.Dense(100, activation=tf.nn.relu))
 model.add(tf.keras.layers.Dense(10, activation=tf.nn.softmax))
 
-model.compile(optimizer='adam', loss='sparse_categorical_crossentropy', metrics=['accuracy'])
-_ = model.fit(X_train, y_train, epochs=5)
+model.compile(optimizer='adam', loss='sparse_categorical_crossentropy', metrics=['accuracy'])  # steps_per_execution=1
+_ = model.fit(X_train, y_train, epochs=500, use_multiprocessing=True)  # steps_per_epoch=10000
 
 # <editor-fold desc="print Number of Train/Test Images">
 print('----------------')
@@ -38,3 +38,8 @@ print('Accuracy Training: ', str(np.round(train_accuracy * 100, 2)), '%')
 print( )
 print('Accuracy Test: ', str(np.round(test_accuracy * 100, 2)), '%')
 print('----------------')
+
+# Predict Method
+
+predictvalue = None
+model.predict(predictvalue)
