@@ -16,8 +16,8 @@ test_y = y[800:]
 mymodel = numpy.poly1d(numpy.polyfit(train_x, train_y, 4))
 
 myline = numpy.linspace(0, 6, 1000)
-# plt.scatter(train_x, train_y)
-plt.scatter(test_x, test_y)
+plt.scatter(train_x, train_y)
+# plt.scatter(test_x, test_y)
 
 plt.plot(myline, mymodel(myline), 'g')
 plt.show( )
